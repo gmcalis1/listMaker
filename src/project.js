@@ -15,10 +15,14 @@ const projectRepository = (function(){
     }
 })();
 
-export function newProject(name, description, priority){
-    this.name= name,
-    this.description = description;
-    this.priority = priority;
-    projectRepository.pushArray(this)
+export function newProject(name, description){
+    const MakeNewProject = function(name, description){
+        this.name = name
+        this.description = description
+    }
+    let project = new MakeNewProject(name, description);
+    projectRepository.pushArray(project)
+    console.log(projectRepository.getArray())
 }
+
 
